@@ -2,7 +2,7 @@
 
 var React = require("react");
 var ProductsList = require("./products-list");
-var Cart = require("./cart");
+var Cart = require("./cart/cart");
 
 var merge = require("react/lib/merge");
 var EventEmitter = require("events").EventEmitter;

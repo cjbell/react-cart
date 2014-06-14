@@ -13,7 +13,8 @@ var App = React.createClass({
   getInitialState: function() {
     return {
       cartItems: cartManager.items,
-      cartTotal: cartManager.total
+      cartTotal: cartManager.total,
+      itemsInCart: cartManager.totalItems
     }
   },
 
@@ -30,7 +31,8 @@ var App = React.createClass({
 
     this.setState({
       cartItems: cartManager.items,
-      cartTotal: cartManager.total
+      cartTotal: cartManager.total,
+      itemsInCart: cartManager.totalItems
     });
   },
 
@@ -39,7 +41,8 @@ var App = React.createClass({
       <div>
         <header className="site-header">
           {<Cart cartItems={this.state.cartItems}
-                 cartTotal={this.state.cartTotal} />}
+                 cartTotal={this.state.cartTotal}
+                 itemsInCart={this.state.itemsInCart} />}
         </header>
         <section className="products">
           {<ProductsList mediator={mediator}

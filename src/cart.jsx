@@ -8,7 +8,7 @@ var Cart = React.createClass({
     return (
       <div className="cart">
         <span className="cart__summary">You have {this.props.cartItems.length} items in your cart</span><br />
-        <span className="cart__total">Total: £{this.props.cartTotal}</span>
+        <span className="cart__total">Total: £{this.props.cartTotal.toFixed(2)}</span>
       </div>
     );
   }

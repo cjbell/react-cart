@@ -6,7 +6,7 @@ var CartItems = React.createClass({
     return (
       <ol className="cart__items__list">
         {this.props.items.map(function(item){
-          return (<li>{item.quantity} x {item.name} (£{item.price})</li>)
+          return (<li key={item.id}>{item.quantity} x {item.name} (£{item.price})</li>)
         }, this)}
       </ol>
     );

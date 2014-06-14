@@ -19,7 +19,7 @@ var App = React.createClass({
   },
 
   componentDidMount: function() {
-    mediator.on("cart:add", this.addToCart.bind(this));
+    mediator.on("cart:add", this.addToCart);
   },
 
   componentWillUnmount: function() {

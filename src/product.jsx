@@ -11,14 +11,14 @@ var Product = React.createClass({
         <span className="products-list__product__price">£{this.props.product.price}</span>
         <button type="button"
                 className="products-list__product__add-to-cart"
-                onClick={this.handleCartClick}>
+                onClick={this.handleAddToCartClick}>
           Add to cart
         </button>
       </li>
     );
   },
 
-  handleCartClick: function() {
+  handleAddToCartClick: function() {
     this.props.mediator.emit("cart:add", this.props.product);
   }
 

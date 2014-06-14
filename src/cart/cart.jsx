@@ -9,7 +9,7 @@ var cartManager = new CartManager();
 var Cart = React.createClass({
 
   getInitialState: function() {
-    return this.cartManager.toState();
+    return cartManager.toState();
   },
 
   componentDidMount: function() {
@@ -22,7 +22,7 @@ var Cart = React.createClass({
 
   addToCart: function(product) {
     cartManager.addItem(product);
-    this.setState(this.cartManager.toState());
+    this.setState(cartManager.toState());
   },
 
   render: function() {

@@ -34,6 +34,15 @@ var CartManager = function() {
     this.total = 0;
     this.items = [];
   };
+
+  this.toState = function() {
+    return {
+      total: this.total,
+      items: this.items,
+      totalItems: this.totalItems
+    };
+  };
+
 };
 
 module.exports = CartManager;

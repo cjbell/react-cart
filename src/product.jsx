@@ -19,7 +19,7 @@ var Product = React.createClass({
   },
 
   handleCartClick: function() {
-    this.props.addToCart(this.props.product);
+    this.props.mediator.emit("cart:add", this.props.product);
   }
 
 });

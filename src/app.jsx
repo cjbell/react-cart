@@ -2,8 +2,11 @@ var React = require("react");
 var ProductsList = require("./products-list");
 var Cart = require("./cart");
 var CartManager = require("./cart-manager");
+var merge = require("react/lib/merge");
+var EventEmitter = require("events").EventEmitter;
 
 var cartManager = new CartManager();
+var mediator = merge({}, EventEmitter.prototype);
 
 var App = React.createClass({
 
@@ -12,6 +15,14 @@ var App = React.createClass({
       cartItems: cartManager.items,
       cartTotal: cartManager.total
     }
+  },
+
+  componentDidMount: function() {
+    mediator.on("cart:add", this.addToCart.bind(this));
+  },
+
+  componentWillUnmount: function() {
+    mediator.off("cart:add");
   },
 
   addToCart: function(product) {
@@ -31,7 +42,7 @@ var App = React.createClass({
                  cartTotal={this.state.cartTotal} />}
         </header>
         <section className="products">
-          {<ProductsList addToCart={this.addToCart}
+          {<ProductsList mediator={mediator}
                          products={this.props.products} />}
         </section>
       </div>

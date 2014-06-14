@@ -12,7 +12,7 @@ var ProductsList = React.createClass({
           return (
             <Product key={p.id}
               product={p}
-              addToCart={this.props.addToCart} />
+              mediator={this.props.mediator} />
           );
         }, this)}
       </ol>

@@ -1,6 +1,7 @@
 "use strict";
 
 var React = require("react");
+var events = require("./events");
 
 var Product = React.createClass({
 
@@ -19,7 +20,7 @@ var Product = React.createClass({
   },
 
   handleAddToCartClick: function() {
-    this.props.mediator.emit("cart:add", this.props.product);
+    events.emit("cart:add", this.props.product);
   }
 
 });

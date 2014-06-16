@@ -3,6 +3,7 @@
 var React = require("react");
 var CartItems = require("./cart-items");
 var CartManager = require("./cart-manager");
+var events = require("../events");
 
 var cartManager = new CartManager();
 
@@ -13,11 +14,11 @@ var Cart = React.createClass({
   },
 
   componentDidMount: function() {
-    this.props.mediator.on("cart:add", this.addToCart);
+    events.on("cart:add", this.addToCart);
   },
 
   componentWillUnmount: function() {
-    this.props.mediator.off("cart:add");
+    events.off("cart:add");
   },
 
   addToCart: function(product) {
